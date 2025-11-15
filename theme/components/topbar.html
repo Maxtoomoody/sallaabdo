@@ -1,0 +1,23 @@
+{% if settings.header.show_topbar %}
+<div id="topbar" class="bg-slate-900 text-white text-xs md:text-sm">
+  <div class="container mx-auto flex items-center justify-between gap-4 px-4 py-2">
+    
+    <!-- النص المتحرك -->
+    <div class="overflow-hidden flex-1">
+      <div class="topbar-marquee whitespace-nowrap">
+        <span class="mr-8">🚚 شحن سريع لجميع المدن</span>
+        <span class="mr-8">↩️ استرجاع خلال 14 يوم</span>
+        <span class="mr-8">🎁 عروض خاصة هذا الأسبوع</span>
+      </div>
+    </div>
+
+    <!-- زر الإغلاق -->
+    <button type="button"
+            class="shrink-0 opacity-70 hover:opacity-100 transition"
+            data-close-topbar
+            aria-label="إغلاق الشريط العلوي">
+      ✕
+    </button>
+  </div>
+</div>
+{% endif %}

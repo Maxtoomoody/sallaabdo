@@ -1,0 +1,106 @@
+<header class="sticky top-0 z-40 bg-white/90 backdrop-blur border-b border-slate-100">
+
+  {# Topbar فوق الهيدر #}
+  {% include 'topbar' %}
+
+  <div class="container mx-auto px-4 py-3">
+    <div class="flex items-center justify-between gap-4">
+
+      {# اليسار: زر المنيو + منيو الديسكتوب #}
+      <div class="flex items-center gap-3 w-1/3">
+        <!-- زر المنيو للموبايل -->
+        <button
+          type="button"
+          class="lg:hidden inline-flex items-center justify-center rounded-full border border-slate-200 w-9 h-9"
+          aria-label="القائمة"
+          data-menu-toggle
+        >
+          ☰
+        </button>
+
+        <!-- منيو الديسكتوب -->
+        <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-slate-700">
+          {% for link in navigation.main %}
+            <a href="{{ link.url }}" class="hover:text-slate-900 transition">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+
+      {# الوسط: اللوجو في النص فعليًا #}
+      <div class="flex justify-center w-1/3">
+        <a href="/" class="inline-flex">
+          <img
+            src="{{ settings.logo }}"
+            alt="{{ shop.name }}"
+            class="h-8 md:h-10 object-contain"
+          />
+        </a>
+      </div>
+
+      {# اليمين: الأيقونات #}
+      <div class="flex items-center justify-end gap-2 md:gap-3 w-1/3">
+
+        {% if settings.header.show_search %}
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full border border-slate-200 w-9 h-9"
+          aria-label="بحث"
+          data-search-open
+        >
+          🔍
+        </button>
+        {% endif %}
+
+        <a
+          href="/account"
+          class="hidden md:inline-flex items-center justify-center rounded-full border border-slate-200 w-9 h-9"
+          aria-label="الحساب"
+        >
+          👤
+        </a>
+
+        {% if settings.header.show_wishlist %}
+        <a
+          href="/favorites"
+          class="hidden md:inline-flex items-center justify-center rounded-full border border-slate-200 w-9 h-9"
+          aria-label="المفضلة"
+        >
+          ♡
+        </a>
+        {% endif %}
+
+        {% if settings.header.show_cart %}
+        <button
+          type="button"
+          class="inline-flex items-center justify-center rounded-full bg-slate-900 text-white w-10 h-10 relative"
+          aria-label="السلة"
+          data-cart-open
+        >
+          🛒
+          <span
+            class="absolute -top-1 -left-1 min-w-[18px] h-[18px] rounded-full bg-red-500 text-[10px] flex items-center justify-center px-[4px]"
+          >
+            {{ cart.count }}
+          </span>
+        </button>
+        {% endif %}
+
+      </div>
+
+    </div>
+  </div>
+
+  <!-- منيو موبايل منسدلة -->
+  <nav class="lg:hidden hidden border-t border-slate-100 bg-white" data-mobile-menu>
+    <div class="px-4 py-3 flex flex-col gap-2 text-sm">
+      {% for link in navigation.main %}
+        <a href="{{ link.url }}" class="py-1">
+          {{ link.title }}
+        </a>
+      {% endfor %}
+    </div>
+  </nav>
+
+</header>

@@ -1,0 +1,31 @@
+{
+  "settings": {
+    "logo": "upload",
+    "brand_color": "#0F172A",
+    "accent_color": "#22C55E",
+    "header": {
+      "layout": "center-logo",
+      "enable_megamenu": true,
+      "show_search": true,
+      "show_cart": true,
+      "show_wishlist": true
+    }
+  },
+  "sections": {
+    "hero-slider": {
+      "enabled": true,
+      "slides": []
+    },
+    "usp-bar": {
+      "enabled": true
+    },
+    "featured-collections": {
+      "enabled": true,
+      "limit": 6
+    },
+    "product-grid": {
+      "enabled": true,
+      "limit": 12
+    }
+  }
+}

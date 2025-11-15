@@ -1,0 +1,19 @@
+<section class="container mx-auto px-4 py-8">
+  <header class="flex items-center justify-between mb-4">
+    <h2 class="text-lg md:text-xl font-bold">
+      {{ section.title | default: "منتجات مختارة" }}
+    </h2>
+    <a href="{{ section.view_all_url | default: '/collections/all' }}"
+       class="text-xs md:text-sm text-slate-600 hover:text-slate-900 underline">
+      عرض الكل
+    </a>
+  </header>
+
+  <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6">
+    {% for product in section.products %}
+      {% include 'product-card' with product %}
+    {% else %}
+      <p class="text-sm text-slate-500">لا توجد منتجات لعرضها حاليًا.</p>
+    {% endfor %}
+  </div>
+</section>

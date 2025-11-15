@@ -1,0 +1,49 @@
+<footer class="mt-10 border-t border-slate-200 bg-slate-50">
+  <div class="container mx-auto px-4 py-8 grid gap-6 md:grid-cols-4 text-sm text-slate-700">
+
+    <!-- عمود عن المتجر -->
+    <div>
+      <h3 class="mb-3 text-base font-semibold text-slate-900">عن المتجر</h3>
+      <p class="text-xs leading-relaxed">
+        {{ shop.description | default: "وصف قصير عن المتجر يوضع هنا، يمكن تعديله من الإعدادات." }}
+      </p>
+    </div>
+
+    <!-- روابط سريعة -->
+    <div>
+      <h3 class="mb-3 text-base font-semibold text-slate-900">روابط</h3>
+      <ul class="space-y-1">
+        <li><a href="/pages/about" class="hover:text-slate-900">من نحن</a></li>
+        <li><a href="/pages/contact" class="hover:text-slate-900">اتصل بنا</a></li>
+        <li><a href="/pages/terms" class="hover:text-slate-900">الشروط والأحكام</a></li>
+        <li><a href="/pages/privacy" class="hover:text-slate-900">سياسة الخصوصية</a></li>
+      </ul>
+    </div>
+
+    <!-- خدمة العملاء -->
+    <div>
+      <h3 class="mb-3 text-base font-semibold text-slate-900">خدمة العملاء</h3>
+      <ul class="space-y-1 text-xs">
+        <li>📞 {{ shop.phone }}</li>
+        <li>📧 {{ shop.email }}</li>
+        <li>⏰ من {{ settings.working_hours | default: "10 ص - 10 م" }}</li>
+      </ul>
+    </div>
+
+    <!-- السوشيال -->
+    <div>
+      <h3 class="mb-3 text-base font-semibold text-slate-900">تابعنا</h3>
+      <div class="flex items-center gap-3 text-lg">
+        <a href="{{ settings.social_instagram }}" aria-label="Instagram">📷</a>
+        <a href="{{ settings.social_tiktok }}" aria-label="TikTok">🎵</a>
+        <a href="{{ settings.social_snapchat }}" aria-label="Snapchat">👻</a>
+        <a href="{{ settings.social_twitter }}" aria-label="X">𝕏</a>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="border-t border-slate-200 text-center text-xs text-slate-500 py-3">
+    جميع الحقوق محفوظة &copy; {{ 'now' | date: '%Y' }} {{ shop.name }}
+  </div>
+</footer>
